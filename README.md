@@ -38,7 +38,7 @@ This is my **6-month, no-compromise sprint** to master:
 ## 📊 Weekly Execution Tracker (Sample)
 | Week      | Codeforces | Math | Workout | Euler | CTF | Kaggle | Project |
 |-----------|------------|------|---------|-------|-----|--------|---------|
-| Week 1 ✅ | [ ]        | [x]  | [x]     | [x]   | [x] | [x]    | [x]     |
+| Week 1 ✅ | [x]        | [x]  | [x]     | [x]   | [x] | [x]    | [x]     |
 | Week 2 ⏳ | [ ]        | [ ]  | [ ]     | [ ]   | [ ] | [ ]    | [ ]     |
 | Week 3 ⏳ | [ ]        | [ ]  | [ ]     | [ ]   | [ ] | [ ]    | [ ]     |
 | ...       | ...        | ...  | ...     | ...   | ... | ...    | ...     |
