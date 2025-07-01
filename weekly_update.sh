@@ -25,7 +25,7 @@ fi
 # Add weekly header with date at the end of the file
 echo -e "\n### Week ${project_week} - ${sunday_date}\n" >> "$readme"
 
-# Update Weekly Execution Tracker: tick only where activity was logged
+# Update Weekly Execution Tracker: add ✅ emoji directly
 awk -F '|' -v week_num="$project_week" \
     -v cf="${skills_status[CF]}" \
     -v math="${skills_status[Math]}" \
@@ -37,17 +37,16 @@ awk -F '|' -v week_num="$project_week" \
 '
 BEGIN { OFS = "|" }
 {
-    # Trim spaces from each field
     gsub(/^ +| +$/, "", $2)
 
     if ($2 == "Week " week_num) {
-        if (cf == 1)       gsub(/\[ \]/, "[x]", $3)
-        if (math == 1)     gsub(/\[ \]/, "[x]", $4)
-        if (workout == 1)  gsub(/\[ \]/, "[x]", $5)
-        if (euler == 1)    gsub(/\[ \]/, "[x]", $6)
-        if (ctf == 1)      gsub(/\[ \]/, "[x]", $7)
-        if (kaggle == 1)   gsub(/\[ \]/, "[x]", $8)
-        if (project == 1)  gsub(/\[ \]/, "[x]", $9)
+        if (cf == 1 && $3 ~ /^ *$/)       $3 = " ✅ "
+        if (math == 1 && $4 ~ /^ *$/)     $4 = " ✅ "
+        if (workout == 1 && $5 ~ /^ *$/)  $5 = " ✅ "
+        if (euler == 1 && $6 ~ /^ *$/)    $6 = " ✅ "
+        if (ctf == 1 && $7 ~ /^ *$/)      $7 = " ✅ "
+        if (kaggle == 1 && $8 ~ /^ *$/)   $8 = " ✅ "
+        if (project == 1 && $9 ~ /^ *$/)  $9 = " ✅ "
     }
     print
 }' "$readme" > "$temp_readme"
